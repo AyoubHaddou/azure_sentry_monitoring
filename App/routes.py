@@ -1,13 +1,58 @@
-from App import app
-from flask import render_template
+from flask import render_template, redirect, url_for, flash, request, Blueprint
+from . import db 
+from flask_login import login_manager
+from .forms import AddUser, Login 
+from .models import Users 
+from werkzeug.security import check_password_hash, generate_password_hash
+from flask_login import login_user, logout_user, login_required, current_user
 
 
-def compute_item():
-    compute = 2 * 2 
-    return compute 
+main = Blueprint('main', __name__)
 
-
-@app.route('/')
+@main.route('/')
+@main.route('/home')
 def homepage():
-    chiffre = compute_item()
-    return render_template("home.html", chiffre=chiffre)
+    return render_template("home.html")
+
+
+@main.route('/add_user', methods= ['GET', 'POST'])
+def add_user():
+    """[To add an user to the database]
+
+    Returns:
+        [str]: [User code page]
+    """
+
+    form = AddUser()
+    if form.validate_on_submit():
+        if form.password_hash.data == form.password_hash2.data:
+
+            check = Users.query.filter_by(email_address = form.email_address.data).first()
+            if check : 
+                flash('Email already exists', category='error')
+                print('Email already exists')
+            else:
+                Users(last_name = form.last_name.data, first_name = form.first_name.data, email_address = form.email_address.data, password_hash = generate_password_hash(form.password_hash.data, method='sha256')).save_to_db()
+
+                flash('Nouvel utilisateur ajouté ', category='secondary')
+                print('Nouvel utilisateur ajouté ')
+                return redirect(url_for('main.homepage'))
+        else:
+            flash('Please enter same password')
+            print('Please enter same password')
+    return render_template('add_user.html', form=form)
+
+@main.route("/login", methods=["GET","POST"])
+def login():
+    form = Login()
+    if form.validate_on_submit():
+        user = Users.query.filter_by(email_address=form.email.data).first()
+        if user and check_password_hash(user.password_hash, form.password.data):
+            login_user(user)
+            flash("Logged in with success", category="success")
+            print("Logged in with success")
+            return redirect(url_for('main.homepage'))
+        else:
+            flash("Mail address or password invalid", category="danger")
+            print('Wrong email adress')
+    return render_template('login.html', form=form)

@@ -1,0 +1,41 @@
+{% block title %}
+    Ajout utilisateur
+{% endblock %}
+{% block content%}
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification is-danger">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+        {% endwith %}
+<div class='container mt-5'>
+    <h1>Nouvel utilisateur</h1>
+    <form method="POST" class="form-register">
+        {{ form.hidden_tag() }}
+
+        {{ form.last_name.label }}
+        {{ form.last_name(size=32, class="form-control") }}
+        <br>
+
+        {{ form.first_name.label }}
+        {{ form.first_name(class="form-control") }}
+        <br>
+
+        {{ form.email_address.label }}
+        {{ form.email_address(size=32, class="form-control") }}
+        <br>
+
+        {{ form.password_hash.label }}
+        {{ form.password_hash(class="form-control") }}
+        <br>
+
+
+        {{ form.password_hash2.label }}
+        {{ form.password_hash2(class="form-control") }}
+        <br>
+
+        {{ form.submit(class="btn btn-lg btn-dark mt-4 d-block",id="button") }}
+    </form>
+</div>
+{% endblock %}

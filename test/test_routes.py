@@ -1,4 +1,6 @@
-from ..App.routes import compute_item 
+import os 
+from App.routes import compute_item
+
 
 
 def test_compute_item():

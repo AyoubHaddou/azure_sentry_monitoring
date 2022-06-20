@@ -1,7 +1,8 @@
 flask 
 WTForms
 Flask-WTF
-pandas 
-numpy 
-Pillow
 pytest
+python-dotenv
+flask-sqlalchemy
+flask-login
+Werkzeug
