@@ -7,7 +7,6 @@ import csv
 import difflib as dif
 from . import db
 
-
 class Users(db.Model, UserMixin):
 
     id = db.Column(db.Integer(), primary_key=True, nullable=False, unique=True)
@@ -39,7 +38,7 @@ class Users(db.Model, UserMixin):
 
 
 def init_db():
-    # db.drop_all()
+    db.drop_all()
     db.create_all()
     Users(last_name="HADDOU", first_name= "ayoub1", email_address= "ayoub1@gmail.com", password_hash= generate_password_hash("1234", method='sha256'), is_admin=True).save_to_db()
     

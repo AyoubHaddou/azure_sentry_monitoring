@@ -1,11 +1,8 @@
+{% extends "base.html" %}
+
 {% block content %}
-{% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <div class="notification is-danger">
-                {{ messages[0] }}
-            </div>
-        {% endif %}
-        {% endwith %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

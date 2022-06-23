@@ -27,5 +27,3 @@ def load_user(user_id):
 from .routes import main
 app.register_blueprint(main)
 from .models import *
-
-# models.init_db()

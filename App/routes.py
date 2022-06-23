@@ -36,7 +36,7 @@ def add_user():
 
                 flash('Nouvel utilisateur ajouté ', category='secondary')
                 print('Nouvel utilisateur ajouté ')
-                return redirect(url_for('main.homepage'))
+                return redirect(url_for('main.login'))
         else:
             flash('Please enter same password')
             print('Please enter same password')
@@ -56,3 +56,10 @@ def login():
             flash("Mail address or password invalid", category="danger")
             print('Wrong email adress')
     return render_template('login.html', form=form)
+
+
+@main.route('/logout')
+def logout_page():
+    logout_user()
+    flash('Vous êtes correctement déconnecté',category="success")
+    return redirect(url_for('main.homepage'))
