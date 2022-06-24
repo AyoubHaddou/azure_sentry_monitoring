@@ -7,3 +7,4 @@ flask-sqlalchemy
 flask-login
 Werkzeug
 pytest
+sentry-sdk[flask]
