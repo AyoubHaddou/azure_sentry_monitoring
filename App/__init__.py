@@ -4,8 +4,25 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 import os
+import sentry_sdk
+from sentry_sdk.integrations.flask import FlaskIntegration
+
+
+sentry_sdk.init(
+    dsn="https://b4f842a1561b40d9aa2056e45dddb116@o1297886.ingest.sentry.io/6527343",
+    integrations=[
+        FlaskIntegration(),
+    ],
+
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production.
+    traces_sample_rate=1.0
+)
 
 app = Flask(__name__)
+
+
 
 
 app.config["SECRET_KEY"] = os.getenv('SECRET_KEY')

@@ -63,3 +63,12 @@ def logout_page():
     logout_user()
     flash('Vous êtes correctement déconnecté',category="success")
     return redirect(url_for('main.homepage'))
+
+@main.route('/debug-sentry')
+def trigger_error():
+    division_by_zero = 1 / 0
+
+
+def compute_item():
+    operation = 2 * 2
+    return operation 
