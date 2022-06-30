@@ -65,7 +65,7 @@ def login():
 def logout_page():
     logout_user()
     flash('Vous êtes correctement déconnecté',category="success")
-    return redirect(url_for('main.homepage'))
+    return redirect(url_for('main.login'))
 
 @main.route('/debug-sentry')
 def trigger_error():
