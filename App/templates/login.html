@@ -5,37 +5,56 @@
 
 {% block content %}
 
-<div class="container col-4">
 
-  <div class="card shadow mt-5" id="login">
-    <h1 class="bg-success" id="header-login" >Log in</h1>
+<div class="main2">
+  <h1 >Log in</h1>
 
-    <form method="POST" class="form-register">
-      <div>{{ form.hidden_tag() }}</div>
-      <div class="m-3">
-        <div class="mb-3">
-          <div>Email:</div>
-          <div>
-            {{form.email(placeholder="exemple@exemple.com",
-            class="form-control")}}
+  <div class="rowflex">
+
+  
+      <form method="POST" class="form-register">
+        <div>{{ form.hidden_tag() }}</div>
+        <div class="form-inside">
+          <div class="email">
+            <div class="email-label">Email:</div>
+            <div class="email-content">
+              {{form.email(placeholder="exemple@exemple.com",
+              class="form-control")}}
+            </div>
+          </div>
+          <div class="password">
+            <div class="password-label">Password:</div>
+            <div class="password-field">
+              {{form.password(placeholder="***********", class="form-control")}}
+            </div>
+          </div>
+          <div class="rowflex">
+
+            
+            <div class="element">{{ form.submit(class="btn bouton", id="button")}}</div>
+  
+            <div class="element" ><a  href="{{ url_for('main.homepage') }}" >Register</a></div>
+            
           </div>
         </div>
-        <div id="password-login">
-          <div>Password:</div>
-          <div>
-            {{form.password(placeholder="***********", class="form-control")}}
-          </div>
-        </div>
-        <div class="d-flex justify-content-between mt-3 mb-3">
-          <div>{{ form.submit(class="btn bouton", id="button")}}</div>
-
-          <div><a  href="{{ url_for('main.homepage') }}" class="btn btn-dark">Register</a></div>
-          
-        </div>
-      </div>
-    </form>
+      </form>
   </div>
+
 </div>
+
+
+<div class="main1">
+      <h1> Welwom to my website project</h1>
+
+
+      <p>
+        Content is coming soon ...
+      </p>
+
+</div>
+
+
+
 
 
 

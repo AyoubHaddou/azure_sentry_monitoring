@@ -5,12 +5,11 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Bootstrap CSS -->
+  <!-- Bootstrap CSS -->  
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
 
-  <link rel="stylesheet" href="/static/main.css">
-  <link rel="stylesheet" href="/static/menu.css">
+  <link rel="stylesheet" href="/static/test.css">
 
   <title>
     {% block title %}
@@ -19,43 +18,45 @@
 </head>
 
 <body>
-  <nav class="bg-colorDark">
+  <nav >
     <ul>
-        <li class="menuInfo">
           <a aria-current="page" href="{{ url_for('main.homepage') }}">Home</a>
-        </li>
         {% if current_user.is_authenticated %}
-        <li class="menuExperience">
           <a class="nav-link" href="{{ url_for('main.logout_page') }}">Log out</a>
-        </li>
-        <li class="menuExperience">
           <a class="nav-link">Welcome {{ current_user.first_name }}</a>
-          </li>
         {% else %}
-        <li class="menuContact">
             <a class="nav-link" href="{{ url_for('main.login') }}">Log in</a>
-        </li>
-        <li class="menuContact">
           <a class="nav-link" href="{{ url_for('main.add_user') }}">Create an account</a>
-        </li>
         {% endif %}
     </ul>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category,message in messages %}
+    <div class="alert alert-{{ category }} alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
 </nav>
-  {% with messages = get_flashed_messages(with_categories=true) %}
-  {% if messages %}
-  {% for category,message in messages %}
-  <div class="alert alert-{{ category }} alter-dismissable fade show" role="alert">
-    {{ message }}
-    <button type="button" class="close" data-dismiss="alert">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  {% endfor %}
-  {% endif %}
-  {% endwith %}
+
+
+
 
   {% block content %}
   {% endblock %}
+
+
+  <div class="foot">
+
+    <div>
+      <h5>Contact</h5>
+    </div>
+    
+  </div>
 
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
