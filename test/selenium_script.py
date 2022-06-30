@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from glob import glob
+from json import load
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
@@ -7,6 +8,8 @@ from selenium.webdriver.chrome.service import Service
 from time import sleep 
 from dataclasses import dataclass
 import os 
+from dotenv import load_dotenv
+load_dotenv()
 
 
 @dataclass
