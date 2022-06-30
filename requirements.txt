@@ -10,5 +10,3 @@ dataclasses
 pytest
 pytest-coverage
 sentry-sdk[flask]
-selenium
-webdriver-manager
