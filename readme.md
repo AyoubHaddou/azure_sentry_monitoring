@@ -7,4 +7,4 @@ Suivit du nombre de connexion, paramétrage de logs et alértes personalisée.
 
 Avec Azure et Sentry.
 
-![images](App/static/images/sentry.png)
+![images](App/static/images/sentry2.png)
