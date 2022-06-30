@@ -6,7 +6,8 @@ from flask_login import LoginManager
 import os
 import sentry_sdk
 from sentry_sdk.integrations.flask import FlaskIntegration
-
+from dotenv import load_dotenv
+load_dotenv()
 
 sentry_sdk.init(
     dsn="https://b4f842a1561b40d9aa2056e45dddb116@o1297886.ingest.sentry.io/6527343",
