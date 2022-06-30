@@ -5,7 +5,7 @@ from .forms import AddUser, Login
 from .models import Users 
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_login import login_user, logout_user, login_required, current_user
-
+from sentry_sdk import capture_message, capture_exception
 
 main = Blueprint('main', __name__)
 
@@ -31,11 +31,13 @@ def add_user():
             if check : 
                 flash('Email already exists', category='error')
                 print('Email already exists')
+                capture_message('Try to register with the same email detected')
             else:
                 Users(last_name = form.last_name.data, first_name = form.first_name.data, email_address = form.email_address.data, password_hash = generate_password_hash(form.password_hash.data, method='sha256')).save_to_db()
 
                 flash('Nouvel utilisateur ajouté ', category='secondary')
                 print('Nouvel utilisateur ajouté ')
+                capture_message('New user registered')
                 return redirect(url_for('main.login'))
         else:
             flash('Please enter same password')
@@ -49,6 +51,7 @@ def login():
         user = Users.query.filter_by(email_address=form.email.data).first()
         if user and check_password_hash(user.password_hash, form.password.data):
             login_user(user)
+            capture_message('User logged with success')
             flash("Logged in with success", category="success")
             print("Logged in with success")
             return redirect(url_for('main.homepage'))
