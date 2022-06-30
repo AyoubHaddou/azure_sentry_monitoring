@@ -12,4 +12,3 @@ pytest-coverage
 sentry-sdk[flask]
 selenium
 webdriver-manager
-pyvirtualdisplay

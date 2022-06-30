@@ -6,14 +6,12 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 from time import sleep 
 from dataclasses import dataclass
-from pyvirtualdisplay import Display
 import os 
 
 
 @dataclass
 class Selenium_test:
 
-    display = Display(visible=0, size=(800, 600))
 
     url = 'https://asp-ayoub-h.azurewebsites.net/' 
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
@@ -54,7 +52,6 @@ class Selenium_test:
 
 
     def init_test(self):
-        self.display.start()
         self.driver.get(self.url)
         self.click_login_page()
         self.login_test('ayoub5@gmail.com', '1234')
