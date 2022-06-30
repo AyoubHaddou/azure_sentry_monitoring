@@ -3,13 +3,7 @@
     Ajout utilisateur
 {% endblock %}
 {% block content%}
-{% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <div class="notification is-danger">
-                {{ messages[0] }}
-            </div>
-        {% endif %}
-        {% endwith %}
+
 <div class='container mt-5'>
     <h1>Nouvel utilisateur</h1>
     <form method="POST" class="form-register">

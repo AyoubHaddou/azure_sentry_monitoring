@@ -6,5 +6,9 @@ python-dotenv
 flask-sqlalchemy
 flask-login
 Werkzeug
+dataclasses
 pytest
+pytest-coverage
 sentry-sdk[flask]
+selenium
+webdriver-manager
