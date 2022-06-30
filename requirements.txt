@@ -8,3 +8,5 @@ flask-login
 Werkzeug
 pytest-coverage
 sentry-sdk[flask]
+selenium
+webdriver-manager
