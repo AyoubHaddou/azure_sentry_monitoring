@@ -1,10 +1,5 @@
-import datetime
-# allow to set variable is_active=True and to stay connected
 from flask_login import UserMixin
-import logging as lg
 from werkzeug.security import generate_password_hash
-import csv
-import difflib as dif
 from . import db
 
 class Users(db.Model, UserMixin):

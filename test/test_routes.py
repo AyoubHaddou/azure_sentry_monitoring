@@ -1,4 +1,3 @@
-import os 
 from App.routes import compute_item
 
 
