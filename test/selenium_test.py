@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 from glob import glob
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from time import sleep 
 from dataclasses import dataclass
@@ -11,7 +13,7 @@ import os
 class Selenium_test:
 
     url = 'https://asp-ayoub-h.azurewebsites.net/' 
-    driver = webdriver.Firefox(executable_path='./test/driver/geckodriver')
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
     def click_login_page(self):
         login_button = self.driver.find_element(By.LINK_TEXT, 'LOG IN').click()
