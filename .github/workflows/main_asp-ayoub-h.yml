@@ -30,8 +30,8 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Pytest run 
-        run : pytest 
+      - name: Test with Pytest and Selenium 
+        run : pytest --cov app --cov-fail-under=60 --pyargs
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
