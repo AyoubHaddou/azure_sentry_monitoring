@@ -569,3 +569,22 @@ console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkErr
 
 ###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
 
+1656595417324	geckodriver	INFO	Listening on 127.0.0.1:51621
+1656595417329	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "35521" "-no-remote" "-profile" "/tmp/rust_mozprofileZ2Kv7h"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1656595418523	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:35521
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileZ2Kv7h/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+1656595420275	Marionette	INFO	Listening on port 40233
+DevTools listening on ws://localhost:35521/devtools/browser/2dd83493-08d6-415b-ba84-67ff0d6ea051
+1656595420354	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://asp-ayoub-h.azurewebsites.net"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://asp-ayoub-h.azurewebsites.net"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+1656595425466	Marionette	INFO	Stopped listening on port 40233
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 1969\"  data: no]"
