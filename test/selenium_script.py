@@ -18,7 +18,7 @@ class Selenium_test:
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
     def click_login_page(self):
-        login_button = self.driver.find_element(By.LINK_TEXT, 'LOG IN').click()
+        login_button = self.driver.find_element(By.LINK_TEXT, 'Log in').click()
         print('------------------Test click on login page Done----------------------')
     
     def login_test(self, user, password) :
@@ -32,7 +32,7 @@ class Selenium_test:
         # Try + assert ou l'un ou l'autre uniquement ? 
         try:
             h1 = self.driver.find_element( By.TAG_NAME, 'h1')
-            assert h1.text == "Hello world"
+            assert h1.text == "Welwom to my website project"
         except AttributeError:
             print('ERROR ----- h1 not found after loging')
         # Assert Flash login success 
@@ -41,7 +41,7 @@ class Selenium_test:
         print('------------------test login user Done----------------------')
 
     def logout_test(self):
-        self.driver.find_element(By.LINK_TEXT, 'LOG OUT').click()
+        self.driver.find_element(By.LINK_TEXT, 'Log out').click()
         try :
             flash_logout = self.driver.find_element(By.CLASS_NAME, 'alert')
             assert 'Vous êtes correctement déconnecté' in flash_logout.text 
