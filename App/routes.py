@@ -17,11 +17,6 @@ def homepage():
 
 @main.route('/add_user', methods= ['GET', 'POST'])
 def add_user():
-    """[To add an user to the database]
-
-    Returns:
-        [str]: [User code page]
-    """
 
     form = AddUser()
     if form.validate_on_submit():
@@ -34,7 +29,6 @@ def add_user():
                 capture_message('Try to register with the same email detected')
             else:
                 Users(last_name = form.last_name.data, first_name = form.first_name.data, email_address = form.email_address.data, password_hash = generate_password_hash(form.password_hash.data, method='sha256')).save_to_db()
-
                 flash('Nouvel utilisateur ajouté ', category='secondary')
                 print('Nouvel utilisateur ajouté ')
                 capture_message('New user registered')

@@ -58,7 +58,6 @@ class Selenium_test:
         except Exception as e:
             print('ERROR ----- h1 not found after loging. Error type :', e)
             capture_message(f'SELENIUM - FAILED : page login not found -- error : {e}')
-
         print('------------------test login user Done----------------------')
 
     def logout_test(self):
@@ -81,8 +80,6 @@ class Selenium_test:
         self.login_test(os.getenv('USER_TESTING'), os.getenv('PASSWORD_TESTING'))
         self.logout_test()
         self.quit_test()
-
-
 
 load_test = Selenium_test()
 load_test.init_test()

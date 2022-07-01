@@ -51,14 +51,12 @@ nav ul a {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-
 }
 
 .main2 {
     grid-area :main2;
     padding: 4%;
     background-color: rgba(95, 125, 165, 0.5);
-
 }
 
 
@@ -84,7 +82,6 @@ h1 {
 
 
 .element {
-
     display: flex;
     position: inherit;
     justify-content: center;
@@ -92,7 +89,7 @@ h1 {
     align-self: center;
     text-decoration: none;
     height: 5vh;
-  }
+}
 
 .email-label {
     font-size: large;

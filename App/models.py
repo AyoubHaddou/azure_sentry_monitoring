@@ -14,7 +14,7 @@ class Users(db.Model, UserMixin):
     def __repr__(self):
         return f'{self.last_name} {self.first_name}'
 
-    def json_id(self):
+    def json(self):
         return {
             'id': self.id, 
             'last_name': self.last_name, 
@@ -23,10 +23,6 @@ class Users(db.Model, UserMixin):
             'is_admin': self.is_admin
             }
 
-    @classmethod
-    def find_by_id(cls, id):
-        return cls.query.filter_by(id=id).first()
-        
     def save_to_db(self):
         db.session.add(self)
         db.session.commit()
