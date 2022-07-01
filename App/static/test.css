@@ -33,6 +33,7 @@ nav ul {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    color: azure;
 
 }
 
