@@ -38,7 +38,7 @@ class Selenium_test:
             print('Click to login sucess')
         except Exception as e :
             capture_message(f'SELENIUM - FAILED : page login not found -- error : {e}')
-            print('No h1 found after click to login')
+            print('No h1 found after click to login. Error type :', e)
         print('------------------Test click on login page Done----------------------')
     
     def login_test(self, user, password) :
@@ -56,7 +56,7 @@ class Selenium_test:
             assert 'Logged in with success' in flash_login.text 
             capture_message('SELENIUM - SUCCESS : login done with sucess ')
         except Exception as e:
-            print('ERROR ----- h1 not found after loging')
+            print('ERROR ----- h1 not found after loging. Error type :', e)
             capture_message(f'SELENIUM - FAILED : page login not found -- error : {e}')
 
         print('------------------test login user Done----------------------')
@@ -68,7 +68,7 @@ class Selenium_test:
             assert 'Vous êtes correctement déconnecté' in flash_logout.text 
             capture_message('SELENIUM - SUCCESS : login done with sucess ')
         except Exception as e:
-            print('Alert info logout not in page')
+            print('Alert info logout not in page. Error type', e)
             capture_message(f'SELENIUM - FAILED : page login not found -- error : {e}')
 
     def quit_test(self):
