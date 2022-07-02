@@ -67,7 +67,7 @@ nav ul a {
     border-right: 1px solid white
 }
 
-.main1 p {
+.main1 p, .main2 p {
     text-align: center;
 }
 
