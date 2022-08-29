@@ -27,7 +27,7 @@ def create_app():
     def load_user(user_id):
         return Users.query.get(int(user_id))
     
-    if 'database.db' in os.listdir('App'):
+    if os.path.isfile("App/database.db"):
         pass
     else:
         app.app_context().push()
