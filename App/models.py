@@ -1,9 +1,11 @@
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash
-from . import db
+from flask_sqlalchemy import SQLAlchemy
+
+
+db = SQLAlchemy()
 
 class Users(db.Model, UserMixin):
-
     id = db.Column(db.Integer(), primary_key=True, nullable=False, unique=True)
     last_name = db.Column(db.String(length=30), nullable=False)
     first_name = db.Column(db.String(length=30), nullable=False)
@@ -27,9 +29,7 @@ class Users(db.Model, UserMixin):
         db.session.add(self)
         db.session.commit()
 
-
 def init_db():
-    db.drop_all()
     db.create_all()
     Users(last_name="HADDOU", first_name= "ayoub1", email_address= "ayoub1@gmail.com", 
             password_hash= generate_password_hash("1234", method='sha256'), is_admin=True).save_to_db()

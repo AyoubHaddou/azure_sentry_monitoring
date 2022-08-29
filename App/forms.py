@@ -5,7 +5,6 @@ from wtforms.fields import DateField, SelectField
 from wtforms.validators import Length, DataRequired, Email, EqualTo, ValidationError
 from flask_wtf.file import FileField, FileAllowed
 
-
 class Login(FlaskForm):
     """[Form to login]
     """
@@ -13,7 +12,6 @@ class Login(FlaskForm):
     password = PasswordField(label="Mot de passe:",
                              validators=[DataRequired()])
     submit = SubmitField(label="Login")
-
 
 class AddUser(FlaskForm):
     """[Form to add user]

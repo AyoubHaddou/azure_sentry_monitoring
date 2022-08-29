@@ -1,5 +1,4 @@
 from flask import render_template, redirect, url_for, flash, request, Blueprint
-from . import db 
 from flask_login import login_manager
 from .forms import AddUser, Login 
 from .models import Users 
@@ -13,7 +12,6 @@ main = Blueprint('main', __name__)
 @main.route('/home')
 def homepage():
     return render_template("home.html")
-
 
 @main.route('/add_user', methods= ['GET', 'POST'])
 def add_user():
@@ -54,17 +52,16 @@ def login():
             print('Wrong email adress')
     return render_template('login.html', form=form)
 
-
 @main.route('/logout')
 def logout_page():
     logout_user()
     flash('Vous êtes correctement déconnecté',category="success")
     return redirect(url_for('main.login'))
 
+# Test logs to sentry 
 @main.route('/debug-sentry')
 def trigger_error():
     division_by_zero = 1 / 0
-
 
 def compute_item():
     operation = 2 * 2
